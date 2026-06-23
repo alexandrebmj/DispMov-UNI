@@ -94,6 +94,16 @@ textarea {
   resize: vertical;
 }
 
+.error-text {
+  margin-top: 0.75rem;
+  color: #b91c1c;
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+  border-radius: 14px;
+  padding: 0.9rem 1rem;
+  font-size: 0.95rem;
+}
+
 .primary-btn,
 .secondary-btn {
   border-radius: 16px;

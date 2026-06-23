@@ -26,13 +26,23 @@ function App() {
     },
   ]);
 
+  const validCredentials = {
+    admin: '1234',
+    candidato: 'abcde',
+  } as const;
+
   const pageComponent = useMemo(() => {
     if (!isAuthenticated) {
       return (
         <LoginPage
-          onLogin={() => {
-            setIsAuthenticated(true);
-            setPage('list');
+          onLogin={(username, password) => {
+            const typedUsername = username as keyof typeof validCredentials;
+            const isValid = validCredentials[typedUsername] === password;
+            if (isValid) {
+              setIsAuthenticated(true);
+              setPage('list');
+            }
+            return isValid;
           }}
         />
       );

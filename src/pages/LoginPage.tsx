@@ -1,12 +1,22 @@
 import { useState } from 'react';
 
 type LoginPageProps = {
-  onLogin: () => void;
+  onLogin: (username: string, password: string) => boolean;
 };
 
 export default function LoginPage({ onLogin }: LoginPageProps) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const handleSubmit = () => {
+    const isValid = onLogin(username.trim(), password);
+    if (!isValid) {
+      setError('Usuário ou senha incorretos. Tente novamente.');
+      return;
+    }
+    setError('');
+  };
 
   return (
     <main className="page page-login">
@@ -19,7 +29,10 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
           id="username"
           type="text"
           value={username}
-          onChange={(event) => setUsername(event.target.value)}
+          onChange={(event) => {
+            setUsername(event.target.value);
+            setError('');
+          }}
           placeholder="Informe seu usuário"
         />
 
@@ -28,15 +41,20 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
           id="password"
           type="password"
           value={password}
-          onChange={(event) => setPassword(event.target.value)}
+          onChange={(event) => {
+            setPassword(event.target.value);
+            setError('');
+          }}
           placeholder="Informe sua senha"
         />
+
+        {error ? <div className="error-text">{error}</div> : null}
 
         <button
           type="button"
           className="primary-btn"
-          onClick={onLogin}
-          disabled={!username || !password}
+          onClick={handleSubmit}
+          disabled={!username.trim() || !password}
         >
           Entrar
         </button>
