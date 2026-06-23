@@ -35,14 +35,8 @@ export default function ProductListPage({ products, onAddNew, onLogout }: Produc
           <p className="subtitle">Produtos cadastrados</p>
           <h1>Produtos</h1>
         </div>
-        <button type="button" className="secondary-btn" onClick={onLogout}>
+        <button type="button" className="secondary-btn logout-btn" onClick={onLogout}>
           Sair
-        </button>
-      </div>
-
-      <div className="toolbar">
-        <button type="button" className="primary-btn" onClick={onAddNew}>
-          + Cadastrar novo produto
         </button>
       </div>
 
@@ -62,6 +56,12 @@ export default function ProductListPage({ products, onAddNew, onLogout }: Produc
             </div>
           </article>
         ))}
+      </div>
+
+      <div className="product-footer">
+        <button type="button" className="primary-btn" onClick={onAddNew}>
+          + Cadastrar novo produto
+        </button>
       </div>
     </main>
   );
