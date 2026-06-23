@@ -18,11 +18,35 @@ function App() {
   const [products, setProducts] = useState<Product[]>([
     {
       id: '1',
-      name: 'Câmera fotográfica',
-      description: 'Câmera compacta com zoom óptico 10x.',
-      price: 1299.9,
+      name: 'Smartphone Samsung Galaxy A54',
+      description: 'Telefone inteligente com câmera 50MP e bateria de longa duração.',
+      price: 2199.9,
       category: 'Eletrônicos',
-      image: 'https://images.unsplash.com/photo-1519183071298-a2962be54afa?auto=format&fit=crop&w=400&q=80',
+      image: '',
+    },
+    {
+      id: '2',
+      name: 'Camiseta Básica Azul Marinho',
+      description: 'Camiseta de algodão 100% confortável e durável.',
+      price: 79.9,
+      category: 'Roupas',
+      image: '',
+    },
+    {
+      id: '3',
+      name: 'Café Premium 500g',
+      description: 'Café especial torrado e moído na hora, sabor intenso.',
+      price: 45.9,
+      category: 'Alimentos',
+      image: '',
+    },
+    {
+      id: '4',
+      name: 'Luminária de Mesa LED',
+      description: 'Luminária com controle de intensidade e 3 temperaturas de cor.',
+      price: 129.9,
+      category: 'Casa',
+      image: '',
     },
   ]);
 

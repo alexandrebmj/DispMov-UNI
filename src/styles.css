@@ -9,15 +9,19 @@
   color: #111827;
 }
 
-body, html, #root {
+html,
+body,
+#root {
   margin: 0;
   min-height: 100vh;
+  height: 100%;
 }
 
 body {
   background: radial-gradient(circle at top left, #c3dafe 0%, transparent 35%),
     radial-gradient(circle at bottom right, #fbcfe8 0%, transparent 30%),
     #f8fafc;
+  min-height: 100vh;
 }
 
 button,
@@ -52,9 +56,20 @@ button {
 }
 
 .page-login {
-  display: grid;
-  place-items: center;
-  min-height: calc(100vh - 32px);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px 32px;
+}
+
+.page-login .card {
+  width: 100%;
+  max-width: 540px;
+}
+
+.page-login .card:focus-within {
+  outline: none;
 }
 
 .brand {
@@ -166,24 +181,31 @@ textarea {
 
 .product-card {
   display: grid;
-  gap: 14px;
+  grid-template-columns: 100px 1fr;
+  gap: 16px;
+  align-items: center;
   background: white;
-  border-radius: 24px;
+  border-radius: 22px;
   overflow: hidden;
   border: 1px solid rgba(148, 163, 184, 0.18);
+  padding: 14px;
 }
 
 .product-image {
-  min-height: 180px;
+  width: 100%;
+  min-height: 100px;
+  max-width: 100px;
+  aspect-ratio: 1 / 1;
   background: #e2e8f0;
-  display: grid;
-  place-items: center;
+  border-radius: 18px;
+  overflow: hidden;
 }
 
 .product-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .image-placeholder {
@@ -191,7 +213,39 @@ textarea {
 }
 
 .product-content {
-  padding: 18px;
+  padding: 0;
+}
+
+.product-content strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 1.05rem;
+}
+
+.product-content p {
+  margin: 0 0 0.85rem;
+  line-height: 1.5;
+  color: #475569;
+  font-size: 0.96rem;
+}
+
+.product-meta {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  color: #475569;
+  font-size: 0.95rem;
+  align-items: center;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: stretch;
+  margin-bottom: 18px;
+}
+
+.toolbar .primary-btn {
+  width: 100%;
 }
 
 .product-content strong {
